@@ -1,0 +1,38 @@
+# Copyright 2018 The Kubernetes Authors.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+# http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+- name: download Docker installer
+  get_url: url=https://get.docker.com dest=/tmp/docker-installer.sh
+
+- name: Execute the docker-installer.sh
+  shell: "bash /tmp/docker-installer.sh -s docker --mirror Aliyun"
+
+- name: Remove the docker-installer.sh
+  file:
+    path: /tmp/docker-installer.sh
+    state: absent
+
+- name: start docker service
+  systemd:
+    name: docker
+    daemon_reload: yes
+    enabled: True
+    state: started
+
+- name: start containerd service
+  systemd:
+    name: containerd
+    daemon_reload: yes
+    enabled: True
+    state: started
