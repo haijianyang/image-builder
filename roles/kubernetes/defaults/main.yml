@@ -17,10 +17,10 @@ kubernetes_arch: "x86_64"
 kubernetes_rpm_repo: "https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/"
 kubernetes_rpm_gpg_check: "1"
 kubernetes_rpm_gpg_key: "https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg"
-kubernetes_rpm_version: "1.20.6-0"
+kubernetes_rpm_version: "1.21.2-0"
 kubernetes_cni_rpm_version: "0.8.7-0"
 
 
 kubernetes_container_registry: "registry.cn-hangzhou.aliyuncs.com/google_containers"
 
-kubernetes_semver: "v1.20.6"
+kubernetes_semver: "v1.21.2"
